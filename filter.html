@@ -419,7 +419,7 @@
 				<div class="flex items-center justify-between mb-4">
 					<h2 class="text-xl font-bold text-gray-800">Startups</h2>
 
-					<a href="#" class="text-blue-600 hover:text-blue-500 font-medium">View all</a>
+					<a href="#" class="text-blue-600 hover:text-blue-500 font-medium" onclick="viewAll()">View all</a>
 				</div>
 				<div class="overflow-x-auto bg-white rounded-lg shadow">
 					<table class="w-full whitespace-no-wrap bg-white overflow-hidden table-striped">
@@ -570,6 +570,11 @@
 			   }
 			   
 			   return filteredData;
+		   }
+
+		   function viewAll(){
+			document.getElementById('search-filter').value ='';
+			showStartupsInTable(data);
 		   }
 
 		   function showStartupsInTable(data){
