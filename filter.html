@@ -177,7 +177,7 @@ a {
 	
 </head>
 <body class="antialiased bg-gray-200">
-		<div class="bg-indigo-900 px-4 py-4 sticky-top">
+		<div class="bg-indigo-900 px-4 py-4 sticky-top"> <!-- this is top nav bar having sticky top class -->
 			<div
 				class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
 			>
@@ -227,7 +227,7 @@ a {
 				</div>
 			</div>
 		</div>
-
+		<!-- Side Filter bar starts here -->
 		<div class="container-fluid overflow-y-hidden">
 			<div class="row">
 				<div class="sidebar col-3">
@@ -235,21 +235,22 @@ a {
 						<div class="row d-flex justify-content-center">
 							<div class="col-12">
 								<div class="card">
+									<!-- first filter group of side bar -->
 									<article class="filter-group">
 										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
 												<h6 class="title">Domain </h6>
 											</a> </header>
-										<div class="filter-content collapse" id="collapse_aside1" style="">
-											<div class="card-body">
-												<ul class="list-menu">
-													<li><a href="#" data-abc="true">Education </a></li>
-													<li><a href="#" data-abc="true">Technology </a></li>
-													<li><a href="#" data-abc="true">Aggriculture </a></li>
-													<li><a href="#" data-abc="true">E-commerce </a></li>
-													<li><a href="#" data-abc="true">Service </a></li>
-												</ul>
+											<div class="filter-content collapse" id="collapse_aside1" style="">
+												<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+														<div class="custom-control-label"> E-commerce </div>
+													</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+														<div class="custom-control-label"> Education </div>
+													</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+														<div class="custom-control-label"> Aggriculture</div>
+													</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+														<div class="custom-control-label"> Service</div>
+													</label> </div>
 											</div>
-										</div>
 									</article>
 									<article class="filter-group">
 										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside2" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
@@ -294,14 +295,20 @@ a {
 					</div>
 				  </div>
 
+				  <!-- end of side filter bar -->
+
+				  <!-- main contert/startups list area starts here -->
+
 				<div class="col-9 offset-3 h-80" id="main">
+
 					<div class="bg-grey col-12 align-middle justify-content-center flex" >
 						<input type="text" class="m-2 p-2 col-8 border-2" placeholder="Search..." id="search-filter">
 						<a href="#" class="text-blue-600 hover:text-blue-500 font-medium m-2 p-2" onclick="viewAll()">View all</a>
 					</div>
 			
 					<div class="container-fluid scroll" id="startups">
-						
+						<!-- this area is populated by script at the bottom of this document 
+						 -->
 					
 					
 					</div>
@@ -311,6 +318,7 @@ a {
 		</div>
 		
 		
+		<!-- end of main content and start of footer -->
 
 	<footer class="text-white body-font bg-indigo-900">
 		<div
@@ -408,6 +416,7 @@ a {
 	</footer>
 
 	<script>
+		// data to be looped through
 		var data = [
 			{"startUp" : "#IN12345", "name" : "ABC Company", "date" : "10/01/2020", "domain" : "E-commerce", "stage" : "Completed"},
 			{"startUp" : "#IN12346", "name" : "XYZ Company", "date" : "12/11/2019", "domain" : "Education", "stage" : "Processing"},
@@ -419,27 +428,17 @@ a {
 			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
 		   ];
 
-		   showStartupsInTable(data);
+		   showStartupsInTable(data); //shows the whole data on load of page
 
-		   $(`#search-filter`).on(`keyup`, function(){
+		   $(`#search-filter`).on(`keyup`, function(){ // looks for changes in search and filters the data accordingly
 			   var value = $(this).val();
 			   console.log(value);
 			   var Newdata = searchFilter(value, data);
 			   showStartupsInTable(Newdata);
 		   });
 
-		   $(window).scroll(function() {
-				$('.fadedfx').each(function(){
-				var imagePos = $(this).offset().top;
 
-				var topOfWindow = $(window).scrollTop();
-					if (imagePos < topOfWindow+500) {
-						$(this).addClass("fadeIn");
-					}
-				});
-			});
-
-		   function searchFilter(value, data){
+		   function searchFilter(value, data){ // function to filter data bases on input in the search field
 			   var filteredData = [];
 			   value = value.toLowerCase();
 			   for(var i = 0; i< data.length; i++){
@@ -458,12 +457,12 @@ a {
 			   return filteredData;
 		   }
 
-		   function viewAll(){
+		   function viewAll(){ //fired when user clicks on view all, clears the search field and resets the list
 			document.getElementById('search-filter').value ='';
 			showStartupsInTable(data);
 		   }
 
-		   function showStartupsInTable(data){
+		   function showStartupsInTable(data){ //main function that adds tags/cards to main area based on the array(data) passed to it
 		   var table = document.getElementById("startups");
 		   table.innerHTML = ''
    
