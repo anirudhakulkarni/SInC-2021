@@ -270,7 +270,13 @@ a {
 												<h6 class="title"> Team Size </h6>
 											</a> </header>
 										<div class="filter-content collapse" id="collapse_aside3" style="">
-											<div class="card-body"> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 1 - 10 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 10 - 25 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 25 - 50 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 50 - 100 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> greater than 100 </span> </label> </div>
+											<div class="card-body"> 
+												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 1 - 10 </span> </label>
+												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 10 - 25 </span> </label> 
+												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 25 - 50 </span> </label> 
+												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 50 - 100 </span> </label> 
+												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> greater than 100 </span> </label> 
+											</div>
 										</div>
 									</article>
 									<article class="filter-group">
@@ -436,6 +442,13 @@ a {
 			   var Newdata = searchFilter(value, data);
 			   showStartupsInTable(Newdata);
 		   });
+
+		   function onlyOne(checkbox) { //handels the checkbox of team strength filter
+				var checkboxes = document.getElementsByName('team')
+				checkboxes.forEach((item) => {
+					if (item !== checkbox) item.checked = false
+				})
+			}
 
 
 		   function searchFilter(value, data){ // function to filter data bases on input in the search field
