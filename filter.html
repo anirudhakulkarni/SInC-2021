@@ -2,7 +2,10 @@
   <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
 	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<style>
   
@@ -10,20 +13,171 @@
 
 	display: block;
 	}
-	[x-cloak] {
-		display: none;
-	}
+
 	body {
 		font-family: "Inter" !important;
+		
 	}
 
+	.wrapper{
+		overflow: auto;
+	}
+
+	html, body {
+    height: 100%;
+	}
+	
+	
+	
+	.sidebar {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	position: fixed;
+	height: 75vh;
+	overflow: auto;
+	}
+
+
+	.scroll{
+		height: 70vh;
+		overflow: auto;
+		white-space: nowrap;
+	}
+
+
+	@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+	background-color: #eeeeee;
+	font-family: 'Open Sans', serif;
+	font-size: 14px
+}
+
+.mt-100 {
+	margin-top: 10px
+}
+
+.filter-group {
+	border-bottom: 1px solid #e4e4e4
+}
+
+.card {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0.37rem
+}
+
+.card-header {
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 0;
+	background-color: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+.filter-group .card-header {
+	border-bottom: 0
+}
+
+.icon-control {
+	margin-top: 6px;
+	float: right;
+	font-size: 80%
+}
+
+.list-menu {
+	list-style: none;
+	margin: 0;
+	padding-left: 0
+}
+
+.list-menu a {
+	color: #343a40
+}
+
+a {
+	text-decoration: none !important;
+	background-color: transparent
+}
+
+.checkbox-btn {
+	position: relative
+}
+
+.checkbox-btn input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0
+}
+
+.checkbox-btn input:checked~.btn {
+	border-color: #3167eb;
+	background-color: #3167eb;
+	color: #fff
+}
+
+.btn-light {
+	display: inline-block;
+	font-weight: 600;
+	color: #343a40;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: #eee;
+	border: 1px solid #eee;
+	padding: 0.45rem 0.85rem;
+	font-size: 10px;
+	line-height: 1.5;
+	border-radius: 0.37rem
+}
+
+.btn-light:hover {
+	background-color: #fff;
+	border-color: #989898
+}
+
+.btn-medium {
+	font-size: 12px;
+	padding: 10px 22px;
+	display: inline-block;
+	margin-right: 20px;
+	letter-spacing: 2px;
+	border: 1px solid #157af6;
+	width: 100%
+}
+
+.highlight-button:hover {
+	background-color: #157af6;
+	border: 2px solid #157af6;
+	color: #fff
+}
+
+.custom-control {
+	position: relative;
+	display: block;
+	min-height: 1.5rem;
+	padding-left: 1.5rem
+}
 	</style>
 
 	
 </head>
 <body class="antialiased bg-gray-200">
-	<div>
-		<div class="bg-indigo-900 px-4 py-4">
+		<div class="bg-indigo-900 px-4 py-4 sticky-top">
 			<div
 				class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
 			>
@@ -74,373 +228,90 @@
 			</div>
 		</div>
 
-	<div x-data="{ sidemenu: false }" class="h-screen flex overflow-hidden" x-cloak @keydown.window.escape="sidemenu = false">
-
-        <div class="md:hidden">
-			<div @click="sidemenu = false" class="fixed inset-0 z-30 bg-gray-600 opacity-0 pointer-events-none transition-opacity ease-linear duration-300" :class="{'opacity-75 pointer-events-auto': sidemenu, 'opacity-0 pointer-events-none': !sidemenu}"></div>
-
-			<!-- Small Screen Menu --> 
-			<div class="fixed inset-y-0 left-0 flex flex-col z-40 max-w-xs w-full bg-white transform ease-in-out duration-300 -translate-x-full" :class="{'translate-x-0': sidemenu, '-translate-x-full': !sidemenu}">
-
-				<!-- Brand Logo / Name -->
-				<div class="flex items-center px-6 py-3 h-16">
-					<div class="text-2xl font-bold tracking-tight text-gray-800">Filters</div>
-				</div>
-				<!-- @end Brand Logo / Name -->
-
-				<div class="px-4 py-2 flex-1 h-0 overflow-y-auto">
-					<ul>
-						<li>
-              <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                  <span>Dropdown</span>
-                  <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </button>
-                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
-                  <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #1</a>
-                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #2</a>
-                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #3</a>
-                  </div>
-                </div>
-              </div>
-						</li>
-
-						<li>
-							<a href="#"
-								class="mb-1 px-2 py-2 rounded-lg flex items-center font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-200">
-								<svg xmlns="http://www.w3.org/2000/svg" class="mr-4 opacity-50" width="24" height="24"
-									viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-									stroke-linecap="round" stroke-linejoin="round">
-									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-									<line x1="4" y1="19" x2="20" y2="19" />
-									<polyline points="4 15 8 9 12 11 16 6 20 10" />
-								</svg>
-								Analytics
-							</a>
-						</li>
-
-						<li>
-							<a href="#"
-								class="mb-1 px-2 py-2 rounded-lg flex items-center font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-200">
-								<svg xmlns="http://www.w3.org/2000/svg" class="mr-4 opacity-50" width="24" height="24"
-									viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-									stroke-linecap="round" stroke-linejoin="round">
-									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-									<polyline points="14 3 14 8 19 8" />
-									<path d="M17 21H7a2 2 0 0 1 -2 -2V5a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-									<line x1="9" y1="9" x2="10" y2="9" />
-									<line x1="9" y1="13" x2="15" y2="13" />
-									<line x1="9" y1="17" x2="15" y2="17" />
-								</svg>
-								Invoices
-							</a>
-						</li>
-
-						<li>
-							<a href="#"
-								class="mb-1 px-2 py-2 rounded-lg flex items-center font-medium text-blue-700 hover:text-blue-600 hover:bg-gray-200 bg-gray-200">
-								<svg xmlns="http://www.w3.org/2000/svg" class="mr-4 opacity-50" width="24" height="24"
-									viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-									stroke-linecap="round" stroke-linejoin="round">
-									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-									<circle cx="12" cy="12" r="9" />
-									<polyline points="12 7 12 12 9 15" />
-								</svg>
-								Tracking
-							</a>
-						</li>
-
-						<li>
-							<a href="#"
-								class="mb-1 px-2 py-2 rounded-lg flex items-center font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-200">
-								<svg xmlns="http://www.w3.org/2000/svg" class="mr-4 opacity-50" width="24" height="24"
-									viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-									stroke-linecap="round" stroke-linejoin="round">
-									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-									<path
-										d="M16 6h3a 1 1 0 011 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11" />
-									<line x1="8" y1="8" x2="12" y2="8" />
-									<line x1="8" y1="12" x2="12" y2="12" />
-									<line x1="8" y1="16" x2="12" y2="16" />
-								</svg>
-								History
-							</a>
-						</li>
-
-						<li>
-							<a href="#"
-								class="mb-1 px-2 py-2 rounded-lg flex items-center font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-200">
-								<svg xmlns="http://www.w3.org/2000/svg" class="mr-4 opacity-50" width="24" height="24"
-									viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-									stroke-linecap="round" stroke-linejoin="round">
-									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-									<path
-										d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-									<circle cx="12" cy="12" r="3" />
-								</svg>
-								Settings
-							</a>
-						</li>
-					</ul>
-				</div>
-				
-			</div>
-			<!-- @end Small Screen Menu -->
-		</div>
-
-
-		<!-- Menu Above Medium Screen -->
-		<div class="bg-white w-64 min-h-screen overflow-y-auto hidden md:block shadow relative z-30">
-
-			<!-- Brand Logo / Name -->
-			<div class="flex items-center px-6 py-3 h-16">
-				<div class="text-2xl font-bold tracking-tight text-gray-800">Filters</div>
-			</div>
-			<!-- @end Brand Logo / Name -->
-
-			<div class="px-4 py-2">
-				<ul>
-
-
-					<li>
-						<nav class="top-border-nav border-b border-gray-200 flex justify-between items-center px-4 shadow-md border-t-4">
-							<a href="#" class="block py-6 uppercase">Home</a>
-							<div x-data="{ isOpen: false }" @mouseover="isOpen = true" @mouseout="isOpen = false" class="relative cursor-pointer">
-								<div class="flex items-center py-4">
-									<svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+		<div class="container-fluid overflow-y-hidden">
+			<div class="row">
+				<div class="sidebar col-3">
+					<div class="container-fluid mt-100">
+						<div class="row d-flex justify-content-center">
+							<div class="col-12">
+								<div class="card">
+									<article class="filter-group">
+										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+												<h6 class="title">Domain </h6>
+											</a> </header>
+										<div class="filter-content collapse" id="collapse_aside1" style="">
+											<div class="card-body">
+												<ul class="list-menu">
+													<li><a href="#" data-abc="true">Education </a></li>
+													<li><a href="#" data-abc="true">Technology </a></li>
+													<li><a href="#" data-abc="true">Aggriculture </a></li>
+													<li><a href="#" data-abc="true">E-commerce </a></li>
+													<li><a href="#" data-abc="true">Service </a></li>
+												</ul>
+											</div>
+										</div>
+									</article>
+									<article class="filter-group">
+										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside2" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+												<h6 class="title">Assistance Required </h6>
+											</a> </header>
+										<div class="filter-content collapse" id="collapse_aside2" style="">
+											<div class="card-body"> <input type="range" class="custom-range" min="0" max="100" name="">
+												<div class="form-row">
+													<div class="form-group col-md-6"> <label>Min</label> <input class="form-control" placeholder="$0" type="number"> </div>
+													<div class="form-group text-right col-md-6"> <label>Max</label> <input class="form-control" placeholder="$1,0000" type="number"> </div>
+												</div> <a href="#" class="highlight-button btn btn-medium button xs-margin-bottom-five" data-abc="true">Apply Now</a>
+											</div>
+										</div>
+									</article>
+									<article class="filter-group">
+										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside3" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+												<h6 class="title"> Team Size </h6>
+											</a> </header>
+										<div class="filter-content collapse" id="collapse_aside3" style="">
+											<div class="card-body"> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 1 - 10 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 10 - 25 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 25 - 50 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> 50 - 100 </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> greater than 100 </span> </label> </div>
+										</div>
+									</article>
+									<article class="filter-group">
+										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside4" data-abc="true" class="collapsed" aria-expanded="false"> <i class="icon-control fa fa-chevron-down"></i>
+												<h6 class="title">Stage </h6>
+											</a> </header>
+										<div class="filter-content collapse" id="collapse_aside4" style="">
+											<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+													<div class="custom-control-label"> Completed </div>
+												</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+													<div class="custom-control-label"> Processing </div>
+												</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+													<div class="custom-control-label"> Pending</div>
+												</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+													<div class="custom-control-label"> Something else</div>
+												</label> </div>
+										</div>
+									</article>
 								</div>
-								<ul x-show="isOpen" 
-									x-transition:enter="transition origin-top-right ease-out duration-150"
-									x-transition:enter-start="opacity-0 transform scale-90"
-									x-transition:enter-end="opacity-100 transform scale-100"
-									x-transition:leave="transition origin-top-right ease-in duration-150"
-									x-transition:leave-start="opacity-100 transform scale-100"
-									x-transition:leave-end="opacity-0 transform scale-90"
-									class="absolute w-48 bg-white -m-2 right-0 border border-grey-100 rounded shadow-lg">
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-											<p class="ml-2">Account</p>
-										</a>
-									</li>
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-											<p class="ml-2">Settings</p>
-										</a>
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full border-t border-gray-300 hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-											<p class="ml-2">Log Out</p>
-										</a>
-									</li>
-								</ul>
 							</div>
-						</nav>
-					</li>
-
-					<li>
-						<nav class="top-border-nav border-b border-gray-200 flex justify-between items-center px-4 shadow-md border-t-4">
-							<a href="#" class="block py-6 uppercase">Home</a>
-							<div x-data="{ isOpen: false }" @mouseover="isOpen = true" @mouseout="isOpen = false" class="relative cursor-pointer">
-								<div class="flex items-center py-4">
-									<svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-								</div>
-								<ul x-show="isOpen" 
-									x-transition:enter="transition origin-top-right ease-out duration-150"
-									x-transition:enter-start="opacity-0 transform scale-90"
-									x-transition:enter-end="opacity-100 transform scale-100"
-									x-transition:leave="transition origin-top-right ease-in duration-150"
-									x-transition:leave-start="opacity-100 transform scale-100"
-									x-transition:leave-end="opacity-0 transform scale-90"
-									class="absolute w-48 bg-white -m-2 right-0 border border-grey-100 rounded shadow-lg">
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-											<p class="ml-2">Account</p>
-										</a>
-									</li>
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-											<p class="ml-2">Settings</p>
-										</a>
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full border-t border-gray-300 hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-											<p class="ml-2">Log Out</p>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</li>
-
-					<li>
-						<nav class="top-border-nav border-b border-gray-200 flex justify-between items-center px-4 shadow-md border-t-4">
-							<a href="#" class="block py-6 uppercase">Home</a>
-							<div x-data="{ isOpen: false }" @mouseover="isOpen = true" @mouseout="isOpen = false" class="relative cursor-pointer">
-								<div class="flex items-center py-4">
-									<svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-								</div>
-								<ul x-show="isOpen" 
-									x-transition:enter="transition origin-top-right ease-out duration-150"
-									x-transition:enter-start="opacity-0 transform scale-90"
-									x-transition:enter-end="opacity-100 transform scale-100"
-									x-transition:leave="transition origin-top-right ease-in duration-150"
-									x-transition:leave-start="opacity-100 transform scale-100"
-									x-transition:leave-end="opacity-0 transform scale-90"
-									class="absolute w-48 bg-white -m-2 right-0 border border-grey-100 rounded shadow-lg">
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-											<p class="ml-2">Account</p>
-										</a>
-									</li>
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-											<p class="ml-2">Settings</p>
-										</a>
-									<li>
-										<a href="#"" class="block py-3 px-4 flex w-full border-t border-gray-300 hover:bg-gray-100">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-											<p class="ml-2">Log Out</p>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</li>
-
-					<li>
-            <nav class="top-border-nav border-b border-gray-200 flex justify-between items-center px-4 shadow-md border-t-4">
-              <a href="#" class="block py-6 uppercase">Home</a>
-              <div x-data="{ isOpen: false }" @mouseover="isOpen = true" @mouseout="isOpen = false" class="relative cursor-pointer">
-                  <div class="flex items-center py-4">
-                      <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </div>
-                  <ul x-show="isOpen" 
-                      x-transition:enter="transition origin-top-right ease-out duration-150"
-                      x-transition:enter-start="opacity-0 transform scale-90"
-                      x-transition:enter-end="opacity-100 transform scale-100"
-                      x-transition:leave="transition origin-top-right ease-in duration-150"
-                      x-transition:leave-start="opacity-100 transform scale-100"
-                      x-transition:leave-end="opacity-0 transform scale-90"
-                      class="absolute w-48 bg-white -m-2 right-0 border border-grey-100 rounded shadow-lg">
-                      <li>
-                          <a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                              <p class="ml-2">Account</p>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                              <p class="ml-2">Settings</p>
-                          </a>
-                      <li>
-                          <a href="#"" class="block py-3 px-4 flex w-full border-t border-gray-300 hover:bg-gray-100">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                              <p class="ml-2">Log Out</p>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </nav>
-					</li>
-
-					<li>
-            <nav class="top-border-nav border-b border-gray-200 flex justify-between items-center px-4 shadow-md border-t-4">
-              <a href="#" class="block py-6 uppercase">Home</a>
-              <div x-data="{ isOpen: false }" @mouseover="isOpen = true" @mouseout="isOpen = false" class="relative cursor-pointer">
-                  <div class="flex items-center py-4">
-                      <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </div>
-                  <ul x-show="isOpen" 
-                      x-transition:enter="transition origin-top-right ease-out duration-150"
-                      x-transition:enter-start="opacity-0 transform scale-90"
-                      x-transition:enter-end="opacity-100 transform scale-100"
-                      x-transition:leave="transition origin-top-right ease-in duration-150"
-                      x-transition:leave-start="opacity-100 transform scale-100"
-                      x-transition:leave-end="opacity-0 transform scale-90"
-                      class="absolute w-48 bg-white -m-2 right-0 border border-grey-100 rounded shadow-lg">
-                      <li>
-                          <a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                              <p class="ml-2">Account</p>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#"" class="block py-3 px-4 flex w-full hover:bg-gray-100">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                              <p class="ml-2">Settings</p>
-                          </a>
-                      <li>
-                          <a href="#"" class="block py-3 px-4 flex w-full border-t border-gray-300 hover:bg-gray-100">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                              <p class="ml-2">Log Out</p>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </nav>
-				</ul>
-
-
-			</div>
-		</div>
-		<!-- @end Menu Above Medium Screen -->
-
-		<div class="flex-1 flex-col relative z-0 overflow-y-auto">
-			<div class="px-4 md:px-8 py-2 h-16 flex justify-between items-center shadow-sm bg-white">
-				<div class="flex items-center w-2/3">
-					<input id="search-filter" class="bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-white border border-transparent focus:border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal hidden md:block placeholder-gray-700 mr-10" type="text" placeholder="Search...">
-
-					<div class="p-2 rounded-full hover:bg-gray-200 cursor-pointer md:hidden" @click="sidemenu = !sidemenu">
-						<svg xmlns="http://www.w3.org/2000/svg" class="text-gray-600"
-							width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-							fill="none" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-							<line x1="4" y1="6" x2="20" y2="6" />
-							<line x1="4" y1="12" x2="20" y2="12" />
-							<line x1="4" y1="18" x2="20" y2="18" />
-						</svg>
+						</div>
 					</div>
-					<div class="text-xl font-bold tracking-tight text-gray-800 md:hidden ml-2">Filters</div>
-				</div>
-		
-			</div>
-		 
-			<div class="md:max-w-6xl md:mx-auto px-4 py-8">
+				  </div>
 
-
-				<div class="flex items-center justify-between mb-4">
-					<h2 class="text-xl font-bold text-gray-800">Startups</h2>
-
-					<a href="#" class="text-blue-600 hover:text-blue-500 font-medium" onclick="viewAll()">View all</a>
+				<div class="col-9 offset-3 h-80" id="main">
+					<div class="bg-grey col-12 align-middle justify-content-center flex" >
+						<input type="text" class="m-2 p-2 col-8 border-2" placeholder="Search..." id="search-filter">
+						<a href="#" class="text-blue-600 hover:text-blue-500 font-medium m-2 p-2" onclick="viewAll()">View all</a>
+					</div>
+			
+					<div class="container-fluid scroll" id="startups">
+						
+					
+					
+					</div>
+					
 				</div>
-				<div class="overflow-x-auto bg-white rounded-lg shadow">
-					<table class="w-full whitespace-no-wrap bg-white overflow-hidden table-striped">
-						<thead>
-							<tr class="text-left">
-								<th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Start-Up</th>
-								<th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Name</th>
-								<th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Date</th>
-								<th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs text-right">Domain</th>
-								<th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Stage</th>
-							</tr>
-						</thead> 
-						<tbody id="startups">
-				 
-						</tbody>
-					</table>
-				</div>
-        
 			</div>
 		</div>
-	</div>
+		
+		
+
 	<footer class="text-white body-font bg-indigo-900">
 		<div
 			class="container py-6 mx-auto flex items-center sm:flex-row flex-col"
@@ -542,6 +413,10 @@
 			{"startUp" : "#IN12346", "name" : "XYZ Company", "date" : "12/11/2019", "domain" : "Education", "stage" : "Processing"},
 			{"startUp" : "#IN12347", "name" : "Education Company", "date" : "02/3/2019", "domain" : "Education", "stage" : "Completed"},
 			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
+			{"startUp" : "#IN12347", "name" : "Education Company", "date" : "02/3/2019", "domain" : "Education", "stage" : "Completed"},
+			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
+			{"startUp" : "#IN12347", "name" : "Education Company", "date" : "02/3/2019", "domain" : "Education", "stage" : "Completed"},
+			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
 		   ];
 
 		   showStartupsInTable(data);
@@ -551,7 +426,18 @@
 			   console.log(value);
 			   var Newdata = searchFilter(value, data);
 			   showStartupsInTable(Newdata);
-		   })
+		   });
+
+		   $(window).scroll(function() {
+				$('.fadedfx').each(function(){
+				var imagePos = $(this).offset().top;
+
+				var topOfWindow = $(window).scrollTop();
+					if (imagePos < topOfWindow+500) {
+						$(this).addClass("fadeIn");
+					}
+				});
+			});
 
 		   function searchFilter(value, data){
 			   var filteredData = [];
@@ -591,26 +477,27 @@
 				spanClass = "px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-blue-200 text-blue-800";
 			   }
 
-			   var row = `
-						   <tr class="focus-within:bg-gray-200 overflow-hidden">
-							   <td class="border-t">
-								   <span class="text-gray-700 px-6 py-4 flex items-center"> ${data[i].startUp}</span>
-							   </td> 
-							   <td class="border-t">
-								   <span class="text-gray-700 px-6 py-4 flex items-center">${data[i].name}</span>
-							   </td> 
-							   <td class="border-t">
-								   <span class="text-gray-700 px-6 py-4 flex items-center">${data[i].date}</span>
-							   </td> 
-							   <td class="border-t">
-								   <span class="text-gray-700 px-6 py-4 flex items-center justify-end">${data[i].domain}</span>
-							   </td> 
-							   <td class="border-t">
-								   <span class="px-6 py-4 flex items-center">
-									   <span class="${spanClass}">${data[i].stage}</span>
-								   </span>
-							   </td>
-						   </tr>
+			   var row = `			      
+						<div class="card mb-3" >
+						<div class="row no-gutters">
+							<div class="col-md-4">
+							<img src=src="https://unsplash.it/400/300?image=503" class="card-img" alt="">
+							</div>
+							<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">StartUp Name</h5>
+								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+								<div class="collapse" id="${data[i].startUp}">
+								<p>
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh <br/>
+								helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+								</p>
+								</div>
+								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#${data[i].startUp}">View More</button>
+							</div>
+							</div>
+						</div>
+						</div>
 						 `
 			   table.innerHTML += row
 		   }
