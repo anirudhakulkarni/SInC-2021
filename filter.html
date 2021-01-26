@@ -2,20 +2,24 @@
   <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
 	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 	<style>
   
-  .dropdown:hover .dropdown-menu {
-  display: block;
-}
+    .dropdown:hover .dropdown-menu {
 
+	display: block;
+	}
+	[x-cloak] {
+		display: none;
+	}
+	body {
+		font-family: "Inter" !important;
+	}
 
-		[x-cloak] {
-			display: none;
-		}
-		body {
-			font-family: "Inter" !important;
-		}
 	</style>
+
+	
 </head>
 <body class="antialiased bg-gray-200">
 	<div>
@@ -392,7 +396,7 @@
 		<div class="flex-1 flex-col relative z-0 overflow-y-auto">
 			<div class="px-4 md:px-8 py-2 h-16 flex justify-between items-center shadow-sm bg-white">
 				<div class="flex items-center w-2/3">
-					<input class="bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-white border border-transparent focus:border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal hidden md:block placeholder-gray-700 mr-10" type="text" placeholder="Search...">
+					<input id="search-filter" class="bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-white border border-transparent focus:border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal hidden md:block placeholder-gray-700 mr-10" type="text" placeholder="Search...">
 
 					<div class="p-2 rounded-full hover:bg-gray-200 cursor-pointer md:hidden" @click="sidemenu = !sidemenu">
 						<svg xmlns="http://www.w3.org/2000/svg" class="text-gray-600"
@@ -428,107 +432,8 @@
 								<th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Stage</th>
 							</tr>
 						</thead> 
-						<tbody>
-							<tr class="focus-within:bg-gray-200 overflow-hidden">
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">#IN12345</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">ABC Company</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">10 Sep 2018</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center justify-end">E-commerce</span>
-								</td> 
-								<td class="border-t">
-									<span class="px-6 py-4 flex items-center">
-										<span class="px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-green-200 text-green-800">Completed</span>
-									</span>
-								</td>
-							</tr>
-
-							<tr class="focus-within:bg-gray-200 overflow-hidden">
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">#IN12344</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">XYZ Company</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">8 Sep 2018</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center justify-end">E-commerce</span>
-								</td> 
-								<td class="border-t">
-									<span class="px-6 py-4 flex items-center">
-										<span class="px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-orange-200 text-orange-800">Pending</span>
-									</span>
-								</td>
-							</tr>
-
-							<tr class="focus-within:bg-gray-200 overflow-hidden">
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">#IN12343</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">CAC Company</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">7 Sep 2018</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center justify-end">E-commerce</span>
-								</td> 
-								<td class="border-t">
-									<span class="px-6 py-4 flex items-center">
-										<span class="px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-blue-200 text-blue-800">Processing</span>
-									</span>
-								</td>
-							</tr>
-
-							<tr class="focus-within:bg-gray-200 overflow-hidden">
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">#IN12345</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">ABC Company</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">10 Sep 2018</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center justify-end">E-commerce</span>
-								</td> 
-								<td class="border-t">
-									<span class="px-6 py-4 flex items-center">
-										<span class="px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-green-200 text-green-800">Completed</span>
-									</span>
-								</td>
-							</tr>
-
-							<tr class="focus-within:bg-gray-200 overflow-hidden">
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">#IN12344</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">XYZ Company</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center">8 Sep 2018</span>
-								</td> 
-								<td class="border-t">
-									<span class="text-gray-700 px-6 py-4 flex items-center justify-end">E-commerce</span>
-								</td> 
-								<td class="border-t">
-									<span class="px-6 py-4 flex items-center">
-										<span class="px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-orange-200 text-orange-800">Pending</span>
-									</span>
-								</td>
-							</tr>
- 
+						<tbody id="startups">
+				 
 						</tbody>
 					</table>
 				</div>
@@ -630,4 +535,81 @@
 			</span>
 		</div>
 	</footer>
+
+	<script>
+		var data = [
+			{"startUp" : "#IN12345", "name" : "ABC Company", "date" : "10/01/2020", "domain" : "E-commerce", "stage" : "Completed"},
+			{"startUp" : "#IN12346", "name" : "XYZ Company", "date" : "12/11/2019", "domain" : "Education", "stage" : "Processing"},
+			{"startUp" : "#IN12347", "name" : "Education Company", "date" : "02/3/2019", "domain" : "Education", "stage" : "Completed"},
+			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
+		   ];
+
+		   showStartupsInTable(data);
+
+		   $(`#search-filter`).on(`keyup`, function(){
+			   var value = $(this).val();
+			   console.log(value);
+			   var Newdata = searchFilter(value, data);
+			   showStartupsInTable(Newdata);
+		   })
+
+		   function searchFilter(value, data){
+			   var filteredData = [];
+			   value = value.toLowerCase();
+			   for(var i = 0; i< data.length; i++){
+
+				   var startUp = data[i].startUp.toLowerCase();
+				   var name = data[i].name.toLowerCase();
+				   var date = data[i].date.toLowerCase();
+				   var domain = data[i].domain.toLowerCase();
+				   var stage = data[i].stage.toLowerCase();
+
+				   if(startUp.includes(value) || name.includes(value) || date.includes(value) || domain.includes(value) || stage.includes(value)){
+					 filteredData.push(data[i]);
+				   }
+			   }
+			   
+			   return filteredData;
+		   }
+
+		   function showStartupsInTable(data){
+		   var table = document.getElementById("startups");
+		   table.innerHTML = ''
+   
+		   for(var i = 0; i < data.length; i++){
+			   var spanClass = "px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-green-200 text-green-800";
+			   if(`${data[i].stage.toLowerCase()}` == "pending"){
+				spanClass = "px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-orange-200 text-orange-800";
+			   }
+
+			   if(`${data[i].stage.toLowerCase()}` == "processing"){
+				spanClass = "px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-blue-200 text-blue-800";
+			   }
+
+			   var row = `
+						   <tr class="focus-within:bg-gray-200 overflow-hidden">
+							   <td class="border-t">
+								   <span class="text-gray-700 px-6 py-4 flex items-center"> ${data[i].startUp}</span>
+							   </td> 
+							   <td class="border-t">
+								   <span class="text-gray-700 px-6 py-4 flex items-center">${data[i].name}</span>
+							   </td> 
+							   <td class="border-t">
+								   <span class="text-gray-700 px-6 py-4 flex items-center">${data[i].date}</span>
+							   </td> 
+							   <td class="border-t">
+								   <span class="text-gray-700 px-6 py-4 flex items-center justify-end">${data[i].domain}</span>
+							   </td> 
+							   <td class="border-t">
+								   <span class="px-6 py-4 flex items-center">
+									   <span class="${spanClass}">${data[i].stage}</span>
+								   </span>
+							   </td>
+						   </tr>
+						 `
+			   table.innerHTML += row
+		   }
+   
+	   }
+	   </script>
 </body>
