@@ -1,183 +1,18 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
 	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<link href="./assets/css/filterlist.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
-	<style>
-  
-    .dropdown:hover .dropdown-menu {
-
-	display: block;
-	}
-
-	body {
-		font-family: "Inter" !important;
-		
-	}
-
-	.wrapper{
-		overflow: auto;
-	}
-
-	html, body {
-    height: 100%;
-	}
-	
-	
-	
-	.sidebar {
-	margin: 0;
-	padding: 0;
-	background-color: white;
-	position: fixed;
-	height: 75vh;
-	overflow: auto;
-	}
-
-
-	.scroll{
-		height: 70vh;
-		overflow: auto;
-		white-space: nowrap;
-	}
-
-
-	@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
-body {
-	background-color: #eeeeee;
-	font-family: 'Open Sans', serif;
-	font-size: 14px
-}
-
-.mt-100 {
-	margin-top: 10px
-}
-
-.filter-group {
-	border-bottom: 1px solid #e4e4e4
-}
-
-.card {
-	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	min-width: 0;
-	word-wrap: break-word;
-	background-color: #fff;
-	background-clip: border-box;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 0.37rem
-}
-
-.card-header {
-	padding: 0.75rem 1.25rem;
-	margin-bottom: 0;
-	background-color: #fff;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1)
-}
-
-.filter-group .card-header {
-	border-bottom: 0
-}
-
-.icon-control {
-	margin-top: 6px;
-	float: right;
-	font-size: 80%
-}
-
-.list-menu {
-	list-style: none;
-	margin: 0;
-	padding-left: 0
-}
-
-.list-menu a {
-	color: #343a40
-}
-
-a {
-	text-decoration: none !important;
-	background-color: transparent
-}
-
-.checkbox-btn {
-	position: relative
-}
-
-.checkbox-btn input {
-	position: absolute;
-	z-index: -1;
-	opacity: 0
-}
-
-.checkbox-btn input:checked~.btn {
-	border-color: #3167eb;
-	background-color: #3167eb;
-	color: #fff
-}
-
-.btn-light {
-	display: inline-block;
-	font-weight: 600;
-	color: #343a40;
-	text-align: center;
-	vertical-align: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-color: #eee;
-	border: 1px solid #eee;
-	padding: 0.45rem 0.85rem;
-	font-size: 10px;
-	line-height: 1.5;
-	border-radius: 0.37rem
-}
-
-.btn-light:hover {
-	background-color: #fff;
-	border-color: #989898
-}
-
-.btn-medium {
-	font-size: 12px;
-	padding: 10px 22px;
-	display: inline-block;
-	margin-right: 20px;
-	letter-spacing: 2px;
-	border: 1px solid #157af6;
-	width: 100%
-}
-
-.highlight-button:hover {
-	background-color: #157af6;
-	border: 2px solid #157af6;
-	color: #fff
-}
-
-.custom-control {
-	position: relative;
-	display: block;
-	min-height: 1.5rem;
-	padding-left: 1.5rem
-}
-	</style>
 
 	
 </head>
 <body class="antialiased bg-gray-200">
-		<div class="bg-indigo-900 px-4 py-4 sticky-top"> <!-- this is top nav bar having sticky top class -->
+		<div class="bg-indigo-900 px-4 py-4 sticky-top absolute"> <!-- this is top nav bar having sticky top class -->
 			<div
 				class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
 			>
@@ -226,102 +61,130 @@ a {
 					>
 				</div>
 			</div>
-		</div>
-		<!-- Side Filter bar starts here -->
-		<div class="container-fluid overflow-y-hidden">
-			<div class="row">
-				<div class="sidebar col-3">
-					<div class="container-fluid mt-100">
-						<div class="row d-flex justify-content-center">
-							<div class="col-12">
-								<div class="card">
-									<!-- first filter group of side bar -->
-									<article class="filter-group">
-										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
-												<h6 class="title">Domain </h6>
-											</a> </header>
-											<div class="filter-content collapse" id="collapse_aside1" style="">
-												<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-														<div class="custom-control-label"> E-commerce </div>
-													</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-														<div class="custom-control-label"> Education </div>
-													</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-														<div class="custom-control-label"> Aggriculture</div>
-													</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-														<div class="custom-control-label"> Service</div>
-													</label> </div>
-											</div>
-									</article>
-									<article class="filter-group">
-										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside2" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
-												<h6 class="title">Assistance Required </h6>
-											</a> </header>
-										<div class="filter-content collapse" id="collapse_aside2" style="">
-											<div class="card-body"> <input type="range" class="custom-range" min="0" max="100" name="">
-												<div class="form-row">
-													<div class="form-group col-md-6"> <label>Min</label> <input class="form-control" placeholder="$0" type="number"> </div>
-													<div class="form-group text-right col-md-6"> <label>Max</label> <input class="form-control" placeholder="$1,0000" type="number"> </div>
-												</div> <a href="#" class="highlight-button btn btn-medium button xs-margin-bottom-five" data-abc="true">Apply Now</a>
-											</div>
-										</div>
-									</article>
-									<article class="filter-group">
-										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside3" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
-												<h6 class="title"> Team Size </h6>
-											</a> </header>
-										<div class="filter-content collapse" id="collapse_aside3" style="">
-											<div class="card-body"> 
-												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 1 - 10 </span> </label>
-												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 10 - 25 </span> </label> 
-												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 25 - 50 </span> </label> 
-												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 50 - 100 </span> </label> 
-												<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> greater than 100 </span> </label> 
-											</div>
-										</div>
-									</article>
-									<article class="filter-group">
-										<header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside4" data-abc="true" class="collapsed" aria-expanded="false"> <i class="icon-control fa fa-chevron-down"></i>
-												<h6 class="title">Stage </h6>
-											</a> </header>
-										<div class="filter-content collapse" id="collapse_aside4" style="">
-											<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-													<div class="custom-control-label"> Completed </div>
-												</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-													<div class="custom-control-label"> Processing </div>
-												</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-													<div class="custom-control-label"> Pending</div>
-												</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-													<div class="custom-control-label"> Something else</div>
-												</label> </div>
-										</div>
-									</article>
-								</div>
+
+			<div class="bg-grey col-12 mt-3 align-middle justify-content-center flex" >
+				<button type="button" class="btn btn-light mr-10 shadow-sm" data-toggle="collapse" data-target="#filters">Filters <i class="fa fa-filter"></i></button>
+				<input type="text" class="col-8 border-2 p-2" placeholder="Search for Startups..." id="search-filter">
+			</div>
+
+			<div id="filters" class="collapse">
+				<hr class="solid col-9 mx-auto">
+
+				<div class="d-md-flex d-lg-flex d-xl-flex justify-content-around col-9 mx-auto">
+
+				<div class="col-lg-4 col-xl-3 col-md-6">
+					<article class="filter-group">
+						<header class="card-header"> 
+								<h6 class="title">Domain </h6>
+						 </header>
+							<div class="filter-content" id="collapse_aside1" style="">
+								<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+										<div class="custom-control-label"> E-commerce </div>
+									</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+										<div class="custom-control-label"> Education </div>
+									</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+										<div class="custom-control-label"> Aggriculture</div>
+									</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+										<div class="custom-control-label"> Service</div>
+									</label> </div>
+							</div>
+					</article>
+					<article class="filter-group">
+						<header class="card-header"> 
+							<h6 class="title"> Team Size </h6>
+						</header>
+						<div class="filter-content" id="collapse_aside3" style="">
+							<div class="card-body"> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 1 - 10 </span> </label>
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 10 - 25 </span> </label> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 25 - 50 </span> </label> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 50 - 100 </span> </label> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> greater than 100 </span> </label> 
 							</div>
 						</div>
-					</div>
-				  </div>
-
-				  <!-- end of side filter bar -->
-
-				  <!-- main contert/startups list area starts here -->
-
-				<div class="col-9 offset-3 h-80" id="main">
-
-					<div class="bg-grey col-12 align-middle justify-content-center flex" >
-						<input type="text" class="m-2 p-2 col-8 border-2" placeholder="Search..." id="search-filter">
-						<a href="#" class="text-blue-600 hover:text-blue-500 font-medium m-2 p-2" onclick="viewAll()">View all</a>
-					</div>
-			
-					<div class="container-fluid scroll" id="startups">
-						<!-- this area is populated by script at the bottom of this document 
-						 -->
-					
-					
-					</div>
+					</article>
 					
 				</div>
+				
+				<div class ="col-lg-4 col-xl-3 col-md-6">
+
+					<article class="filter-group">
+						<header class="card-header"> 
+							<h6 class="title">Assistance Required </h6>
+						</header>
+						<div class="filter-content" id="collapse_aside1" style="">
+							<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> Under 50,000 &#8377; </div>
+								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> 50,000 - 1 L &#8377; </div>
+								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> 1 L - 5 L &#8377;</div>
+								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> More than 5 L &#8377;</div>
+								</label> </div>
+						</div>
+						
+					</article>
+					<article class="filter-group">
+						<header class="card-header"> 
+							<h6 class="title"> Team Size </h6>
+						</header>
+						<div class="filter-content" id="collapse_aside3" style="">
+							<div class="card-body"> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 1 - 10 </span> </label>
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 10 - 25 </span> </label> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 25 - 50 </span> </label> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 50 - 100 </span> </label> 
+								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> greater than 100 </span> </label> 
+							</div>
+						</div>
+					</article>
+					
+					
+				</div>
+				<div class ="col-lg-4 col-xl-3 col-md-6">
+					<article class="filter-group">
+						<header class="card-header"> 
+							<h6 class="title">Stage </h6>
+						</header>
+						<div class="filter-content" id="collapse_aside4" style="">
+							<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> Completed </div>
+								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> Processing </div>
+								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> Pending</div>
+								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+									<div class="custom-control-label"> Something else</div>
+								</label> </div>
+						</div>
+					</article>
+					
+					<a href="#" class="btn btn-medium button mt-6 mb-12 md:mb-0 md:mt-10 inline-block  text-white bg-red-500 hover:bg-red-600 rounded-lg shadow mx-auto" data-abc="true" data-toggle="collapse" data-target="#filters">Apply Now</a>
+
+				</div>
+
+				</div>
+				
+				
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+
+				
 			</div>
 		</div>
+
+				
+
+					
+			
+					<div class="container-fluid scroll mt-1" id="startups">
+						<!-- this area is populated by script at the bottom of this document-->					
+					</div>
+				
 		
 		
 		<!-- end of main content and start of footer -->
@@ -421,99 +284,8 @@ a {
 		</div>
 	</footer>
 
-	<script>
+	<script src="./assets/js/filterlist.js">
 		// data to be looped through
-		var data = [
-			{"startUp" : "#IN12345", "name" : "ABC Company", "date" : "10/01/2020", "domain" : "E-commerce", "stage" : "Completed"},
-			{"startUp" : "#IN12346", "name" : "XYZ Company", "date" : "12/11/2019", "domain" : "Education", "stage" : "Processing"},
-			{"startUp" : "#IN12347", "name" : "Education Company", "date" : "02/3/2019", "domain" : "Education", "stage" : "Completed"},
-			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
-			{"startUp" : "#IN12347", "name" : "Education Company", "date" : "02/3/2019", "domain" : "Education", "stage" : "Completed"},
-			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
-			{"startUp" : "#IN12347", "name" : "Education Company", "date" : "02/3/2019", "domain" : "Education", "stage" : "Completed"},
-			{"startUp" : "#IN12348", "name" : "QWERTY Company", "date" : "24/03/2020", "domain" : "Technology", "stage" : "Pending"},
-		   ];
-
-		   showStartupsInTable(data); //shows the whole data on load of page
-
-		   $(`#search-filter`).on(`keyup`, function(){ // looks for changes in search and filters the data accordingly
-			   var value = $(this).val();
-			   console.log(value);
-			   var Newdata = searchFilter(value, data);
-			   showStartupsInTable(Newdata);
-		   });
-
-		   function onlyOne(checkbox) { //handels the checkbox of team strength filter
-				var checkboxes = document.getElementsByName('team')
-				checkboxes.forEach((item) => {
-					if (item !== checkbox) item.checked = false
-				})
-			}
-
-
-		   function searchFilter(value, data){ // function to filter data bases on input in the search field
-			   var filteredData = [];
-			   value = value.toLowerCase();
-			   for(var i = 0; i< data.length; i++){
-
-				   var startUp = data[i].startUp.toLowerCase();
-				   var name = data[i].name.toLowerCase();
-				   var date = data[i].date.toLowerCase();
-				   var domain = data[i].domain.toLowerCase();
-				   var stage = data[i].stage.toLowerCase();
-
-				   if(startUp.includes(value) || name.includes(value) || date.includes(value) || domain.includes(value) || stage.includes(value)){
-					 filteredData.push(data[i]);
-				   }
-			   }
-			   
-			   return filteredData;
-		   }
-
-		   function viewAll(){ //fired when user clicks on view all, clears the search field and resets the list
-			document.getElementById('search-filter').value ='';
-			showStartupsInTable(data);
-		   }
-
-		   function showStartupsInTable(data){ //main function that adds tags/cards to main area based on the array(data) passed to it
-		   var table = document.getElementById("startups");
-		   table.innerHTML = ''
-   
-		   for(var i = 0; i < data.length; i++){
-			   var spanClass = "px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-green-200 text-green-800";
-			   if(`${data[i].stage.toLowerCase()}` == "pending"){
-				spanClass = "px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-orange-200 text-orange-800";
-			   }
-
-			   if(`${data[i].stage.toLowerCase()}` == "processing"){
-				spanClass = "px-2 rounded-full text-sm uppercase tracking-wide font-semibold bg-blue-200 text-blue-800";
-			   }
-
-			   var row = `			      
-						<div class="card mb-3" >
-						<div class="row no-gutters">
-							<div class="col-md-4">
-							<img src=src="https://unsplash.it/400/300?image=503" class="card-img" alt="">
-							</div>
-							<div class="col-md-8">
-							<div class="card-body">
-								<h5 class="card-title">StartUp Name</h5>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-								<div class="collapse" id="${data[i].startUp}">
-								<p>
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh <br/>
-								helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-								</p>
-								</div>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#${data[i].startUp}">View More</button>
-							</div>
-							</div>
-						</div>
-						</div>
-						 `
-			   table.innerHTML += row
-		   }
-   
-	   }
-	   </script>
+		
+	</script>
 </body>
