@@ -8,11 +8,11 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
 </head>
-<body class="antialiased bg-gray-200">
-		<div class="bg-indigo-900 px-4 py-4 sticky-top absolute"> <!-- this is top nav bar having sticky top class -->
+<body class="bg-gray-200">
+		<div class="px-4 py-4 sticky-top absolute" style="background-color: #312E81;"> <!-- this is top nav bar having sticky top class -->
 			<div
 				class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
 			>
@@ -127,16 +127,18 @@
 					</article>
 					<article class="filter-group">
 						<header class="card-header"> 
-							<h6 class="title"> Team Size </h6>
+							<h6 class="title"> Year </h6>
 						</header>
-						<div class="filter-content" id="collapse_aside3" style="">
-							<div class="card-body"> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 1 - 10 </span> </label>
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 10 - 25 </span> </label> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 25 - 50 </span> </label> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 50 - 100 </span> </label> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> greater than 100 </span> </label> 
-							</div>
+						<div class="filter-content" id="collapse_aside1" style=" height: fit-content;">
+						<input class="date-own form-control mb-10 overscroll-auto" style="" type="text">
+
+
+						<script type="text/javascript">
+							$('.date-own').datepicker({
+							   minViewMode: 2,
+							   format: 'yyyy'
+							 });
+						</script>
 						</div>
 					</article>
 					
@@ -189,7 +191,7 @@
 		
 		<!-- end of main content and start of footer -->
 
-	<footer class="text-white body-font bg-indigo-900">
+	<footer class="text-white body-font" style="background-color: #312E81;">
 		<div
 			class="container py-6 mx-auto flex items-center sm:flex-row flex-col"
 		>
