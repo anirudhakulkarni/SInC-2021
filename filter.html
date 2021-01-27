@@ -1,6 +1,22 @@
-<head>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta name="robots" content="noindex,nofollow" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="/assets/images/logo/favicon.ico"
+		/>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
-	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<link
+	href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+	rel="stylesheet"
+	/>
 	<link href="./assets/css/filterlist.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -8,8 +24,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+	
 </head>
 <body class="bg-gray-200">
 		<div class="px-4 py-4 sticky-top absolute" style="background-color: #312E81;"> <!-- this is top nav bar having sticky top class -->
@@ -183,7 +198,7 @@
 
 					
 			
-					<div class="container-fluid scroll mt-1" id="startups">
+					<div class="container-fluid scroll mt-2" id="startups">
 						<!-- this area is populated by script at the bottom of this document-->					
 					</div>
 				
@@ -191,99 +206,99 @@
 		
 		<!-- end of main content and start of footer -->
 
-	<footer class="text-white body-font" style="background-color: #312E81;">
+	<footer class="text-white body-font col-12" style="background-color: #312E81;  position: fixed; bottom :0px; height: 70px;">
 		<div
-			class="container py-6 mx-auto flex items-center sm:flex-row flex-col"
-		>
-			<a
-				class="flex title-font font-medium items-center md:justify-start justify-center"
-			>
-				<img src="assets/images/logo/logo_big.png" width="40" height="50" />
-				<span class="ml-3 text-xl">Student Incubation Cell</span>
-			</a>
-			<p
-				class="text-sm text-gray-300 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
-			>
-				© 2021 SInC, IIT Delhi
-			</p>
-			<span
-				class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+				class="container-fluid mx-auto flex items-center sm:flex-row flex-col"
 			>
 				<a
-					class="ml-3 text-gray-300 hover:text-gray-100"
-					href="https://www.facebook.com/sinciitd"
+					class="flex title-fontfont-medium items-center md:justify-start justify-center"
 				>
-					<svg
-						fill="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
-					>
-						<path
-							d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
-						></path>
-					</svg>
+					<img src="assets/images/logo/logo_big.png" width="40" height="50" />
+					<span class="ml-3 text-xl">Student Incubation Cell</span>
 				</a>
-				<a
-					class="ml-3 text-gray-300 hover:text-gray-100"
-					href="https://twitter.com/sinciitd"
+				<p
+					class="text-sm text-gray-300 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
 				>
-					<svg
-						fill="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
-					>
-						<path
-							d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
-						></path>
-					</svg>
-				</a>
-				<a
-					class="ml-3 text-gray-300 hover:text-gray-100"
-					href="https://www.instagram.com/sinciitd/?hl=en"
+					© 2021 SInC, IIT Delhi
+				</p>
+				<span
+					class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start"
 				>
-					<svg
-						fill="none"
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
+					<a
+						class="ml-3 text-gray-300 hover:text-gray-100"
+						href="https://www.facebook.com/sinciitd"
 					>
-						<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-						<path
-							d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
-						></path>
-					</svg>
-				</a>
-				<a
-					class="ml-3 text-gray-300 hover:text-gray-100"
-					href="https://www.linkedin.com/company/sinciitd/"
-				>
-					<svg
-						fill="currentColor"
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="0"
-						class="w-5 h-5"
-						viewBox="0 0 24 24"
+						<svg
+							fill="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							class="w-5 h-5"
+							viewBox="0 0 24 24"
+						>
+							<path
+								d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+							></path>
+						</svg>
+					</a>
+					<a
+						class="ml-3 text-gray-300 hover:text-gray-100"
+						href="https://twitter.com/sinciitd"
 					>
-						<path
-							stroke="none"
-							d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-						></path>
-						<circle cx="4" cy="4" r="2" stroke="none"></circle>
-					</svg>
-				</a>
-			</span>
-		</div>
+						<svg
+							fill="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							class="w-5 h-5"
+							viewBox="0 0 24 24"
+						>
+							<path
+								d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+							></path>
+						</svg>
+					</a>
+					<a
+						class="ml-3 text-gray-300 hover:text-gray-100"
+						href="https://www.instagram.com/sinciitd/?hl=en"
+					>
+						<svg
+							fill="none"
+							stroke="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							class="w-5 h-5"
+							viewBox="0 0 24 24"
+						>
+							<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+							<path
+								d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+							></path>
+						</svg>
+					</a>
+					<a
+						class="ml-3 text-gray-300 hover:text-gray-100"
+						href="https://www.linkedin.com/company/sinciitd/"
+					>
+						<svg
+							fill="currentColor"
+							stroke="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="0"
+							class="w-5 h-5"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke="none"
+								d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+							></path>
+							<circle cx="4" cy="4" r="2" stroke="none"></circle>
+						</svg>
+					</a>
+				</span>
+			</div>
 	</footer>
 
 	<script src="./assets/js/filterlist.js">
@@ -291,3 +306,4 @@
 		
 	</script>
 </body>
+</html>
