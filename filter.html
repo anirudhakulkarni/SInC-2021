@@ -20,16 +20,17 @@
 	<link href="./assets/css/filterlist.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto&display=swap" rel="stylesheet">
+
 </head>
-<body class="bg-gray-200">
-		<div class="px-4 py-4 sticky-top absolute" style="background-color: #312E81;"> <!-- this is top nav bar having sticky top class -->
+<body class="bg-gray-200 col-spam-12 flex flex-col min-h-screen">
+	<div class="flex-grow main">
+		<div class="px-4 py-4 sticky-top-0 " style="background-color: #312E81;"> <!-- this is top nav bar having sticky top class -->
 			<div
-				class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
+				class="sm:max-w-12xl md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
 			>
 				<div class="flex justify-between items-center">
 					<img src="assets/images/logo/logo_big.png" width="50" height="50" />
@@ -43,17 +44,16 @@
 						<div class="bg-gray-400 w-8" style="height: 2px"></div>
 					</div>
 				</div>
-
 				<div>
 					<div class="hidden md:block">
 						<a
-							href="#"
-							class="inline-block py-1 md:py-4 text-gray-100 mr-6 font-bold"
+							href="/index.html"
+							class="inline-block py-1 md:py-4 text-gray-500 mr-6 hover:text-gray-100"
 							>About Us</a
 						>
 						<a
 							href="/portal.html"
-							class="inline-block py-1 md:py-4 text-gray-500 hover:text-gray-100 mr-6"
+							class="inline-block py-1 md:py-4 text-gray-100 font-bold mr-6"
 							>Startup Insights</a
 						>
 						<a
@@ -74,231 +74,325 @@
 						class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"
 						>Login</a
 					>
-				</div>
-			</div>
-
-			<div class="bg-grey col-12 mt-3 align-middle justify-content-center flex" >
-				<button type="button" class="btn btn-light mr-10 shadow-sm" data-toggle="collapse" data-target="#filters">Filters <i class="fa fa-filter"></i></button>
-				<input type="text" class="col-8 border-2 p-2" placeholder="Search for Startups..." id="search-filter">
-			</div>
-
-			<div id="filters" class="collapse">
-				<hr class="solid col-9 mx-auto">
-
-				<div class="d-md-flex d-lg-flex d-xl-flex justify-content-around col-9 mx-auto">
-
-				<div class="col-lg-4 col-xl-3 col-md-6">
-					<article class="filter-group">
-						<header class="card-header"> 
-								<h6 class="title">Domain </h6>
-						 </header>
-							<div class="filter-content" id="collapse_aside1" style="">
-								<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-										<div class="custom-control-label"> E-commerce </div>
-									</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-										<div class="custom-control-label"> Education </div>
-									</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-										<div class="custom-control-label"> Aggriculture</div>
-									</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-										<div class="custom-control-label"> Service</div>
-									</label> </div>
-							</div>
-					</article>
-					<article class="filter-group">
-						<header class="card-header"> 
-							<h6 class="title"> Team Size </h6>
-						</header>
-						<div class="filter-content" id="collapse_aside3" style="">
-							<div class="card-body"> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 1 - 10 </span> </label>
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 10 - 25 </span> </label> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 25 - 50 </span> </label> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> 50 - 100 </span> </label> 
-								<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light"> greater than 100 </span> </label> 
-							</div>
-						</div>
-					</article>
-					
-				</div>
-				
-				<div class ="col-lg-4 col-xl-3 col-md-6">
-
-					<article class="filter-group">
-						<header class="card-header"> 
-							<h6 class="title">Assistance Required </h6>
-						</header>
-						<div class="filter-content" id="collapse_aside1" style="">
-							<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> Under 50,000 &#8377; </div>
-								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> 50,000 - 1 L &#8377; </div>
-								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> 1 L - 5 L &#8377;</div>
-								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> More than 5 L &#8377;</div>
-								</label> </div>
-						</div>
-						
-					</article>
-					<article class="filter-group">
-						<header class="card-header"> 
-							<h6 class="title"> Year </h6>
-						</header>
-						<div class="filter-content" id="collapse_aside1" style=" height: fit-content;">
-						<input class="date-own form-control mb-10 overscroll-auto" style="" type="text">
-
-
-						<script type="text/javascript">
-							$('.date-own').datepicker({
-							   minViewMode: 2,
-							   format: 'yyyy'
-							 });
-						</script>
-						</div>
-					</article>
-					
-					
-				</div>
-				<div class ="col-lg-4 col-xl-3 col-md-6">
-					<article class="filter-group">
-						<header class="card-header"> 
-							<h6 class="title">Stage </h6>
-						</header>
-						<div class="filter-content" id="collapse_aside4" style="">
-							<div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> Completed </div>
-								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> Processing </div>
-								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> Pending</div>
-								</label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
-									<div class="custom-control-label"> Something else</div>
-								</label> </div>
-						</div>
-					</article>
-					
-					<a href="#" class="btn btn-medium button mt-6 mb-12 md:mb-0 md:mt-10 inline-block  text-white bg-red-500 hover:bg-red-600 rounded-lg shadow mx-auto" data-abc="true" data-toggle="collapse" data-target="#filters">Apply Now</a>
-
-				</div>
-
-				</div>
-				
-				
-						</div>
 					</div>
 				</div>
-			</div>
-			</div>
 
+				<div x-data={show:false}>
 				
-			</div>
+
+					<div class="mx-auto md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between" >
+						<button @click="show=!show" type="button" class="inline-block py-2 px-2 text-gray-700 bg-white rounded-lg focus:outline-none hover:text-black hover:ring-2 border-0">Filters <i class="fa fa-filter"></i></button>
+						<input type="text" class="flex-grow ml-4 px-2 py-2 mx-auto col-spam-12 rounded ring-2 focus:outline-none" placeholder="Search for Startups..." id="search-filter">
+					</div>
+
+					<div x-show="show" class="px-4 py-4 content-evenly" >
+						<hr class="solid col-spam-12 mx-auto">
+							<div id="filters" class="grid md:grid-cols-3 sm:grid-cols-1" >
+								<article class="filter-group">
+									<header class="card-header"> 
+											<h6 class="title">Domain </h6>
+									</header>
+									<div class="flex flex-col items-center justify-center">
+										<div class="flex flex-col">
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">E-Commerce</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">Education</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">Aggriculture</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">Medicine</span>
+											</label>
+										</div>
+									</div>
+								</article>
+								<article class="filter-group">
+									<header class="card-header"> 
+										<h6 class="title">Stage </h6>
+									</header>
+									<div class="flex flex-col items-center justify-center">
+										<div class="flex flex-col">
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">Any</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">Completed</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">Processing</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">Pending</span>
+											</label>
+										</div>
+									</div>
+								</article>							
+								<article class="filter-group">
+									<header class="card-header"> 
+										<h6 class="title">Assistance Required </h6>
+									</header>
+									<div class="flex flex-col items-center justify-center">
+										<div class="flex flex-col">
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">less than 1 L &#8377;</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">1 - 2 L &#8377;</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">2 - 5 L &#8377;</span>
+											</label>
+											<label class="inline-flex items-center mt-3">
+												<input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" checked>
+												<span class="ml-2 text-grey-700">More than 5 L &#8377;</span>
+											</label>
+										</div>
+									</div>
+		
+									
+								</article>
+								<article class="filter-group">
+									<header class="card-header"> 
+										<h6 class="title"> Year </h6>
+									</header>
+									<style>
+										.top-100 {top: 100%}
+										.bottom-100 {bottom: 100%}
+										.max-h-select {
+											max-height: 300px;
+										}
+									</style>
+									
+									<div x-data={fromYearShow:false,toYearShow:false} class="mx-auto grid grid-cols-2 p-2">
+											<div class="flex flex-col relative mr-3">
+												<label>From</label>
+												<div @click="fromYearShow=!fromYearShow,toYearShow=false " class="svelte-1l8159u">
+													<div class="my-2 p-1 flex border border-gray-200 bg-white rounded svelte-1l8159u">
+														<div class="flex flex-auto flex-wrap">
+															<div class="flex-1">
+																<input placeholder="Year" class="bg-transparent p-1 px-2 appearance-none outline-none h-full w-full text-gray-800">
+															</div>
+														</div>
+														<div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-l flex items-center border-gray-200 svelte-1l8159u">
+															<button class="cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
+																<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4">
+																	<polyline points="18 15 12 9 6 15"></polyline>
+																</svg>
+															</button>
+														</div>
+													</div>
+												</div>
+												<div x-show="fromYearShow" class="absolute shadow top-100 bg-white z-40 w-full lef-0 rounded max-h-select overflow-y-auto svelte-5uyqqj">
+													<div class="flex flex-col w-full" id="fromYear">													
+													</div>
+												</div>
+											</div>
+											<div class="flex flex-col relative">
+												<label>To</label>
+												<div @click="toYearShow=!toYearShow,fromYearShow=false" class="svelte-1l8159u">
+													<div class="my-2 p-1 flex border border-gray-200 bg-white rounded svelte-1l8159u">
+														<div class="flex flex-auto flex-wrap">
+															<div class="flex-1">
+																<input placeholder="Year" class="bg-transparent p-1 px-2 appearance-none outline-none h-full w-full text-gray-800">
+															</div>
+														</div>
+														<div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-l flex items-center border-gray-200 svelte-1l8159u">
+															<button class="cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
+																<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up w-4 h-4">
+																	<polyline points="18 15 12 9 6 15"></polyline>
+																</svg>
+															</button>
+														</div>
+													</div>
+												</div>
+												<div x-show="toYearShow" class="absolute shadow top-100 bg-white z-40 w-full lef-0 rounded max-h-select overflow-y-auto svelte-5uyqqj">
+													<div class="flex flex-col w-full" id="toYear">													
+													</div>
+												</div>
+											</div>
+										
+									</div>
+								</article>
+								<article class="filter-group">
+									<header class="card-header"> 
+										<h6 class="title"> Team Size </h6>
+									</header>
+									<div class="filter-content" id="collapse_aside3" style="">
+										<div class="card-body content-evenly "> 
+											<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)" checked> <span class="btn btn-light m-1 text-base"> Any </span> </label> 
+											<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light m-1 text-base"> 1 - 10 </span> </label>
+											<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light m-1 text-base"> 10 - 25 </span> </label> 
+											<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light m-1 text-base"> 25 - 50 </span> </label> 
+											<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light m-1 text-base"> 50 - 100 </span> </label> 
+											<label class="checkbox-btn"> <input type="checkbox" name="team" onclick="onlyOne(this)"> <span class="btn btn-light m-1 text-base"> greater than 100 </span> </label> 
+										</div>
+									</div>
+								</article>
+								<button class="self-center px-4 py-2 text-grey-700 bg-white bg-red-700 rounded-lg hover:bg-red-600 focus:outline-none">Apply Now</button>
+							</div>
+							
+							
+							
+						</div>
+					</div>
+
+				</div>
 		</div>
 
-				
-
-					
-			
-					<div class="container-fluid col-12 scroll mt-2" id="startups">
-						<!-- this area is populated by script at the bottom of this document-->					
+		<div class="flex content-around p-2">
+			<div class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-teal-700 border border-red-300 ">
+				<div class="text-xs font-normal leading-none max-w-full flex-initial">Filter-3</div>
+				<div class="flex flex-auto flex-row-reverse">
+					<div>
+						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x cursor-pointer hover:text-red-400 rounded-full w-4 h-4 ml-2">
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
 					</div>
+				</div>
+				</div>
+		<div class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-teal-700 border border-red-300 ">
+			<div class="text-xs font-normal leading-none max-w-full flex-initial">Filter-3</div>
+			<div class="flex flex-auto flex-row-reverse">
+				<div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x cursor-pointer hover:text-red-400 rounded-full w-4 h-4 ml-2">
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+					</svg>
+				</div>
+			</div>
+			</div>
+		<div class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-teal-700 border border-red-300 ">
+		<div class="text-xs font-normal leading-none max-w-full flex-initial">Filter-3</div>
+		<div class="flex flex-auto flex-row-reverse">
+			<div>
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x cursor-pointer hover:text-red-400 rounded-full w-4 h-4 ml-2">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</div>
+		</div>
+		</div>
+		</div>
+			
+		<div class="mx-auto align-middle" id="startups">
+			<!-- this area is populated by script at the bottom of this document-->					
+		</div>
+	
 				
-		
+	</div>
 		
 		<!-- end of main content and start of footer -->
 
-	<footer class="text-white body-font col-12" style="background-color: #312E81;  position: fixed; bottom :0px; height: 70gitpx;">
+	<!-- footer begins here  -->
+
+	<footer class="text-white body-font bg-indigo-900">
 		<div
-				class="container-fluid mx-auto flex items-center sm:flex-row flex-col"
+			class="container py-6 mx-auto flex items-center sm:flex-row flex-col"
+		>
+			<a
+				class="flex title-font font-medium items-center md:justify-start justify-center"
+			>
+				<img src="assets/images/logo/logo_big.png" width="40" height="50" />
+				<span class="ml-3 text-xl">Student Incubation Cell</span>
+			</a>
+			<p
+				class="text-sm text-gray-300 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
+			>
+				© 2021 SInC, IIT Delhi
+			</p>
+			<span
+				class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
 			>
 				<a
-					class="flex title-fontfont-medium items-center md:justify-start justify-center"
+					class="ml-3 text-gray-300 hover:text-gray-100"
+					href="https://www.facebook.com/sinciitd"
 				>
-					<img src="assets/images/logo/logo_big.png" width="40" height="50" />
-					<span class="ml-3 text-xl">Student Incubation Cell</span>
+					<svg
+						fill="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						class="w-5 h-5"
+						viewBox="0 0 24 24"
+					>
+						<path
+							d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+						></path>
+					</svg>
 				</a>
-				<p
-					class="text-sm text-gray-300 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
+				<a
+					class="ml-3 text-gray-300 hover:text-gray-100"
+					href="https://twitter.com/sinciitd"
 				>
-					© 2021 SInC, IIT Delhi
-				</p>
-				<span
-					class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start"
+					<svg
+						fill="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						class="w-5 h-5"
+						viewBox="0 0 24 24"
+					>
+						<path
+							d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+						></path>
+					</svg>
+				</a>
+				<a
+					class="ml-3 text-gray-300 hover:text-gray-100"
+					href="https://www.instagram.com/sinciitd/?hl=en"
 				>
-					<a
-						class="ml-3 text-gray-300 hover:text-gray-100"
-						href="https://www.facebook.com/sinciitd"
+					<svg
+						fill="none"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						class="w-5 h-5"
+						viewBox="0 0 24 24"
 					>
-						<svg
-							fill="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							class="w-5 h-5"
-							viewBox="0 0 24 24"
-						>
-							<path
-								d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
-							></path>
-						</svg>
-					</a>
-					<a
-						class="ml-3 text-gray-300 hover:text-gray-100"
-						href="https://twitter.com/sinciitd"
+						<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+						<path
+							d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+						></path>
+					</svg>
+				</a>
+				<a
+					class="ml-3 text-gray-300 hover:text-gray-100"
+					href="https://www.linkedin.com/company/sinciitd/"
+				>
+					<svg
+						fill="currentColor"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="0"
+						class="w-5 h-5"
+						viewBox="0 0 24 24"
 					>
-						<svg
-							fill="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							class="w-5 h-5"
-							viewBox="0 0 24 24"
-						>
-							<path
-								d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
-							></path>
-						</svg>
-					</a>
-					<a
-						class="ml-3 text-gray-300 hover:text-gray-100"
-						href="https://www.instagram.com/sinciitd/?hl=en"
-					>
-						<svg
-							fill="none"
-							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							class="w-5 h-5"
-							viewBox="0 0 24 24"
-						>
-							<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-							<path
-								d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
-							></path>
-						</svg>
-					</a>
-					<a
-						class="ml-3 text-gray-300 hover:text-gray-100"
-						href="https://www.linkedin.com/company/sinciitd/"
-					>
-						<svg
-							fill="currentColor"
-							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="0"
-							class="w-5 h-5"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke="none"
-								d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-							></path>
-							<circle cx="4" cy="4" r="2" stroke="none"></circle>
-						</svg>
-					</a>
-				</span>
-			</div>
+						<path
+							stroke="none"
+							d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+						></path>
+						<circle cx="4" cy="4" r="2" stroke="none"></circle>
+					</svg>
+				</a>
+			</span>
+		</div>
 	</footer>
 
 	<script src="./assets/js/filterlist.js">
