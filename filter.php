@@ -1,3 +1,21 @@
+<?php
+include 'connect_to_db.php';
+$mysqli = OpenCon();
+
+// Checking for connections 
+if ($mysqli->connect_error) { 
+    die('Connect Error (' .  
+    $mysqli->connect_errno . ') '.  
+    $mysqli->connect_error); 
+} 
+  
+// SQL query to select data from database 
+$sql = "SELECT * FROM testtable"; 
+$result = $mysqli->query($sql); 
+echo mysqli_fetch_array($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
